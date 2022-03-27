@@ -1,0 +1,9 @@
+on: push
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cachix/install-nix-action@v16
+      - run: nix-build -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/6de161729c81dc98e844793cc9c8fda29d5ef62a.tar.gz darwin-atomic-test.nix
