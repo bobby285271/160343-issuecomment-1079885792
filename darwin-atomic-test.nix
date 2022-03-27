@@ -19,7 +19,7 @@ in pkgs.runCommand "glib-collate-test" {
   } ''
     mkdir -p $out
 
-    clang \
+    clang++ \
       $(pkg-config --cflags glib-2.0 gmodule-2.0) \
       $(pkg-config --libs glib-2.0 gmodule-2.0) \
       "${testSrc}" -o "$out/test"
